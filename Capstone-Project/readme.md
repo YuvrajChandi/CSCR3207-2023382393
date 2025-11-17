@@ -1,149 +1,146 @@
-### **CSCR3207 Assignment**
+### **CSCR3207 Capstone Project**
 
 **Submitted By:** Ayush Khati  
-**System id:** 2023414382
-
-# 🎬 IMDB Movie Review Sentiment Analysis — Capstone Project
+**System ID:** 2023414382
 
 ---
 
-## 📌 Project Overview
+# IMDB Movie Review Sentiment Analysis — Capstone Project
 
-This project performs **Sentiment Analysis** on the **IMDB 50K Movie Review Dataset**, classifying reviews as **Positive** or **Negative**.
+This project performs **Sentiment Analysis** on the popular **IMDB 50K Movie Reviews Dataset**, classifying movie reviews as **Positive** or **Negative** using three NLP-based approaches:
 
-Three different NLP/ML techniques were implemented:
+1. **TF-IDF + Logistic Regression** (Classical Machine Learning)
+2. **Word2Vec + Logistic Regression** (Embedding-based NLP)
+3. **DistilBERT Transformer Model** (Modern LLM-based Deep Learning)
 
-1. **TF-IDF + Logistic Regression** (Classic ML)
-2. **Word2Vec + Logistic Regression** (Embedding-Based NLP)
-3. **DistilBERT Transformer** (Modern LLM-Based Approach)
-
-The goal is to learn how classical NLP compares with modern Transformer/LLM models in terms of:
+The goal is to compare classical NLP vs. modern transformer models in terms of:
 
 - Accuracy
 - Speed
 - Efficiency
-- Practical effectiveness
+- Practical real-world performance
 
 ---
 
-# 🎯 **Project Objectives & Outcomes**
+# **Project Objectives & Outcomes**
 
-## **1️⃣ Objective: Analyze the IMDB 50K Dataset**
+## **1️⃣ Dataset Analysis — IMDB 50K Reviews**
 
 ### ✔ What was done:
 
-- Loaded **50,000** reviews with sentiment labels.
-- Identified columns:
-  - `review` → text
-  - `sentiment` → positive/negative
-- Cleaned the dataset using:
-  - HTML removal
+- Loaded **50,000 reviews** containing labeled sentiment.
+- Cleaned dataset using:
   - Lowercasing
+  - HTML removal
   - Removing special characters
   - Normalizing whitespace
-- Created splits:
+- Split into:
   - **Train → 40,000**
   - **Validation → 5,000**
   - **Test → 5,000**
-- Verified **balanced labels** (25k positive, 25k negative).
+- Verified **balanced label distribution** (25k positive / 25k negative).
 
-### ✔ Conclusion
+### Conclusion
 
-Dataset is clean, balanced, and ideal for sentiment classification.
+Dataset is clean, balanced, and ideal for binary sentiment classification.
 
 ---
 
-## **2️⃣ Objective: Apply NLP Techniques (BOW, W2V, Transformer)**
+## **2️⃣ Applied NLP Techniques**
 
-### **A. Bag-of-Words (TF-IDF + Logistic Regression)**
+### **A. TF-IDF + Logistic Regression (Bag of Words)**
 
 - Converted text into TF-IDF vectors.
-- Trained a Logistic Regression classifier.
-- Very fast and reliable baseline.
-
-### **B. Word2Vec (Gensim)**
-
-- Trained 100-dimensional Word2Vec embeddings.
-- Averaged embeddings per review.
-- Trained Logistic Regression on averaged vectors.
-
-### **C. DistilBERT Transformer Model**
-
-- Used HuggingFace `distilbert-base-uncased`.
-- Fine-tuned on GPU (**RTX 3050**).
-- Provides contextual understanding → highest expected performance.
+- Trained Logistic Regression classifier.
+- Very fast and strong baseline for sentiment tasks.
 
 ---
 
-## **3️⃣ Objective: Compare Performance**
+### **B. Word2Vec + Logistic Regression**
 
-Your results (on the test set):
+- Trained **100-dimensional Word2Vec embeddings**.
+- Represented each review by averaging its word vectors.
+- Trained a classifier on these embeddings.
 
-| Model                            | Accuracy                                                            | Precision/Recall/F1 | Inference Speed | Notes                  |
-| -------------------------------- | ------------------------------------------------------------------- | ------------------- | --------------- | ---------------------- |
-| **TF-IDF + Logistic Regression** | ⭐ **91%**                                                          | ~0.90–0.92          | Fastest         | Strong classical model |
-| **Word2Vec (Averaged)**          | 86%                                                                 | ~0.86               | Fast            | Loses context          |
-| **DistilBERT**                   | ~72% (debug subset) <br> ⭐ Expected: **92–94%** when fully trained | High                | Slowest         | Best contextual model  |
+---
 
-### 📊 **Result Images**
+### **C. DistilBERT Transformer (LLM Approach)**
 
-| BOW Results         | W2V Results         | Combined Evaluation      |
+- Fine-tuned `distilbert-base-uncased` using HuggingFace Transformers.
+- Trained using **GPU acceleration (RTX 3050)**.
+- Deep context understanding → highest expected performance.
+
+---
+
+# **3️⃣ Model Performance Comparison**
+
+| Model                              | Accuracy   | Precision/Recall/F1 | Speed   | Notes                         |
+| ---------------------------------- | ---------- | ------------------- | ------- | ----------------------------- |
+| **TF-IDF + Logistic Regression**   | ⭐ **91%** | ~0.90–0.92          | Fastest | Strong classical baseline     |
+| **Word2Vec + Logistic Regression** | 86%        | ~0.86               | Fast    | Loses structure               |
+| **DistilBERT (debug subset)**      | 72–73%     | Moderate            | Slowest | Expected accuracy: **92–94%** |
+
+---
+
+# **Results Visualization**
+
+| BOW Model (TF-IDF)  | Word2Vec Model      | Combined Evaluation      |
 | ------------------- | ------------------- | ------------------------ |
-| ![](result/bow.png) | ![](result/w2v.png) | ![](result/evelute1.png) |
-
-> Note: DistilBERT was run in **debug mode (small subset)** for speed, but a full run would achieve 92–94% accuracy.
+| ![](result/bow.png) | ![](result/w2v.png) | ![](result/evalute1.png) |
 
 ---
 
-## **4️⃣ Objective: Evaluate Biases, Limitations & Improvements**
+# **4️ Bias, Limitations & Improvements**
 
-### ⚠ Biases & Limitations
+## ⚠ Limitations Identified
 
-- **Sarcasm detection** is difficult for all models.
-- **Short reviews** (“good”, “bad”) reduce accuracy.
-- **Domain bias:** IMDB-trained models do NOT generalize to:
-  - Twitter posts
+- **Sarcasm** is hard for all models.
+- **Short reviews** (e.g., "good", "bad") lack context.
+- **Domain bias** → IMDB model won’t generalize to:
+  - Tweets
   - Product reviews
   - Chat messages
 - Transformer training is slower and requires GPU.
 
-### 🚀 Improvements
+---
+
+## Improvements Suggested
 
 - Train DistilBERT fully for **2–3 epochs**.
-- Increase `max_length` to 256 for longer reviews.
-- Use advanced transformers (RoBERTa, BERT-base).
-- Apply **data augmentation** (backtranslation).
-- Create **ensemble models** (BERT + TF-IDF).
-- Perform **misclassification analysis**.
+- Increase max sequence length to 256.
+- Use more powerful models (RoBERTa, BERT-base).
+- Apply data augmentation (backtranslation).
+- Create ensemble (TF-IDF + BERT).
+- Analyze misclassified reviews for further insights.
 
 ---
 
-# 📂 **Project Structure (Updated)**
+# **Project Structure**
 
+````bash
 LLM-Mini-Project-
 │── Assignment1/
 │── Assignment2/
 │── Capstone-Project/
-│ ├── data/
-│ ├── models/ # Models ignored via .gitignore
-│ ├── notebooks/
-│ ├── result/
-│ │ ├── bow.png
-│ │ ├── w2v.png
-│ │ └── evelute1.png
-│ ├── src/
-│ │ ├── preprocessing.py
-│ │ ├── models_bow.py
-│ │ ├── models_w2v.py
-│ │ ├── models_transformer.py
-│ │ └── evaluate.py
-│ ├── requirements.txt
-│ └── README.md
+│   ├── data/
+│   ├── models/           # (Ignored via .gitignore)
+│   ├── notebooks/
+│   ├── result/
+│   │   ├── bow.png
+│   │   ├── w2v.png
+│   │   └── evaluate1.png
+│   ├── src/
+│   │   ├── preprocessing.py
+│   │   ├── models_bow.py
+│   │   ├── models_w2v.py
+│   │   ├── models_transformer.py
+│   │   └── evaluate.py
+│   ├── requirements.txt
+│   └── README.md
 └── ...
 
----
 
-# ▶️ **How to Run the Project**
+#  **How to Run the Project**
 
 ### ✔ Install dependencies
 
@@ -170,7 +167,7 @@ python src/models_transformer.py \
 ✔ Evaluate All Models
 python src/evaluate.py --test data/splits/test.csv
 
-🛑 .gitignore Important Note
+ .gitignore Important Note
 
 The project ignores large files to keep the GitHub repo clean:
 
@@ -183,4 +180,6 @@ models/
 
 This prevents model weight files from causing push failures.
 
-```
+````
+
+Thank You
