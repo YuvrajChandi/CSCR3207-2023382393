@@ -6,7 +6,7 @@ This repository contains all work submitted for the **CSCR3207 — Large Languag
 
 - **Assignment 1**
 - **Assignment 2**
-- **Capstone Project — IMDB Sentiment Analysis**
+- **Capstone Project — HeadlineBias Classifier**
 
 Each project is organized in its own folder with a dedicated README containing:
 
@@ -15,5 +15,6 @@ Each project is organized in its own folder with a dedicated README containing:
 - Execution instructions
 - Results and screenshots
 - Model outputs and analysis
+
 
 
