@@ -1,7 +1,7 @@
 ### **CSCR3207 Capstone Project**
 
-**Submitted By:** Ayush Khati  
-**System ID:** 2023414382
+**Submitted By:** Yuvraj Singh  
+**System ID:** 2023382393
 
 ---
 
@@ -24,7 +24,7 @@ The goal is to compare classical NLP vs. modern transformer models in terms of:
 
 # **Project Objectives & Outcomes**
 
-## **1️⃣ Dataset Analysis — IMDB 50K Reviews**
+## **1️ Dataset Analysis — IMDB 50K Reviews**
 
 ### ✔ What was done:
 
@@ -46,7 +46,7 @@ Dataset is clean, balanced, and ideal for binary sentiment classification.
 
 ---
 
-## **2️⃣ Applied NLP Techniques**
+## **2️ Applied NLP Techniques**
 
 ### **A. TF-IDF + Logistic Regression (Bag of Words)**
 
@@ -72,7 +72,7 @@ Dataset is clean, balanced, and ideal for binary sentiment classification.
 
 ---
 
-# **3️⃣ Model Performance Comparison**
+# **3️ Model Performance Comparison**
 
 | Model                              | Accuracy   | Precision/Recall/F1 | Speed   | Notes                         |
 | ---------------------------------- | ---------- | ------------------- | ------- | ----------------------------- |
@@ -124,7 +124,6 @@ LLM-Mini-Project-
 │── Capstone-Project/
 │   ├── data/
 │   ├── models/           # (Ignored via .gitignore)
-│   ├── notebooks/
 │   ├── result/
 │   │   ├── bow.png
 │   │   ├── w2v.png

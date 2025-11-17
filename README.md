@@ -1,6 +1,6 @@
 # LLM Mini Project Repository
 
-### By **Ayush Khati (2023414382)**
+### By **Yuvraj Singh (2023382393)**
 
 This repository contains all work submitted for the **CSCR3207 — Large Language Models** course, including:
 
@@ -16,4 +16,4 @@ Each project is organized in its own folder with a dedicated README containing:
 - Results and screenshots
 - Model outputs and analysis
 
----
+
