@@ -276,10 +276,3 @@ Verify dataset and model licenses before redistribution.
 
 ---
 
-If you want, I can also create:
-
-* A shorter README version
-* A LaTeX/Word full project report
-* Badges and a GitHub-optimized layout
-
-Just tell me!
